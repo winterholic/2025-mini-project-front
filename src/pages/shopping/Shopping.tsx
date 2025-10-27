@@ -62,16 +62,15 @@ const NavMenu = styled.nav`
   `}
 `;
 
-const NavItem = styled.button<{ active?: boolean }>`
-  background: none;
-  border: none;
+const NavItem = styled.a<{ $active?: boolean }>`
+  text-decoration: none;
   font-size: 0.95rem;
-  font-weight: ${props => props.active ? '600' : '400'};
-  color: ${props => props.active ? '#000' : '#666'};
+  font-weight: ${props => props.$active ? '600' : '400'};
+  color: ${props => props.$active ? '#000' : '#666'};
   cursor: pointer;
   padding: 0.5rem 0;
   transition: color 0.2s;
-  border-bottom: ${props => props.active ? '2px solid #000' : '2px solid transparent'};
+  border-bottom: ${props => props.$active ? '2px solid #000' : '2px solid transparent'};
 
   &:hover {
     color: #000;
@@ -264,9 +263,9 @@ const Shopping: React.FC = () => {
             <StyledLogoText>VOID.</StyledLogoText>
           </StyledLogoLink>
           <NavMenu>
-            <NavItem active>홈</NavItem>
-            <NavItem>장바구니</NavItem>
-            <NavItem>좋아요</NavItem>
+            <NavItem href="/shopping" $active>홈</NavItem>
+            <NavItem href="/shopping/cart">장바구니</NavItem>
+            <NavItem href="/shopping/wishlist">좋아요</NavItem>
             <NavItem>마이페이지</NavItem>
           </NavMenu>
         </HeaderContent>

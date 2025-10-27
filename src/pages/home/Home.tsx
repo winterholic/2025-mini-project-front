@@ -23,6 +23,31 @@ function Home() {
             <span style={{ color: "#6B7280", fontSize: 14 }}>
               {currentUser?.name || currentUser?.username}님
             </span>
+            <a href="/admin" style={{ textDecoration: "none" }}>
+              <button
+                style={{
+                  padding: "8px 16px",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: "#fff",
+                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  border: "none",
+                  borderRadius: 8,
+                  cursor: "pointer",
+                  transition: "all 0.2s"
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(102, 126, 234, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+                }}
+              >
+                관리자
+              </button>
+            </a>
             <button
               onClick={handleLogout}
               style={{

@@ -5,17 +5,21 @@ import Blog from './pages/blog/Blog';
 import WritePost from './pages/blog/WritePost';
 import ComponentPage from './pages/component/ComponentPage';
 import Shopping from './pages/shopping/Shopping';
+import Cart from './pages/shopping/Cart';
+import Wishlist from './pages/shopping/Wishlist';
 import LoveHelper from './pages/lovehelper/LoveHelper';
 import MemeMeme from './pages/meme/MemeMeme';
 import FMNetherlands from './pages/fmnetherlands/FMNetherlands';
 import Login from './pages/login/Login';
+import SignUp from './pages/signup/SignUp';
+import Admin from './pages/admin/Admin';
 import { isAuthenticated } from './utils/auth';
 
 function App() {
   const path = typeof window !== "undefined" ? window.location.pathname : "";
 
   useEffect(() => {
-    if (path === "/login") {
+    if (path === "/login" || path === "/signup") {
       return;
     }
 
@@ -28,14 +32,42 @@ function App() {
     return <Login />;
   }
 
+  if (path === "/signup") {
+    return <SignUp />;
+  }
+
   if (!isAuthenticated()) {
     return null;
+  }
+
+  if (path.startsWith("/admin")) {
+    return (
+      <div className="App">
+        <Admin />
+      </div>
+    );
   }
 
   if (path === "/blog/write") {
     return (
       <div className="App">
         <WritePost />
+      </div>
+    );
+  }
+
+  if (path === "/shopping/cart") {
+    return (
+      <div className="App">
+        <Cart />
+      </div>
+    );
+  }
+
+  if (path === "/shopping/wishlist") {
+    return (
+      <div className="App">
+        <Wishlist />
       </div>
     );
   }

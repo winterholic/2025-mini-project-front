@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react';
 import styled from 'styled-components';
 import { login } from '../../utils/auth';
 import { media } from '../../styles/media';
+import TermsModal from '../../components/TermsModal';
 
 const LoginPageWrapper = styled.div`
   min-height: 100vh;
@@ -142,6 +143,31 @@ const LoginButton = styled.button`
   }
 `;
 
+const SignUpButton = styled.button`
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #667eea;
+  background: #fff;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+
+  &:hover {
+    background: #667eea;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
 const InfoText = styled.p`
   text-align: center;
   font-size: 0.875rem;
@@ -179,6 +205,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -195,6 +222,19 @@ const Login = () => {
         setIsLoading(false);
       }
     }, 500);
+  };
+
+  const handleSignUpClick = () => {
+    setIsTermsModalOpen(true);
+  };
+
+  const handleTermsAgree = () => {
+    setIsTermsModalOpen(false);
+    window.location.href = '/signup';
+  };
+
+  const handleTermsClose = () => {
+    setIsTermsModalOpen(false);
   };
 
   return (
@@ -241,6 +281,10 @@ const Login = () => {
             {isLoading ? '로그인 중...' : '로그인'}
           </LoginButton>
 
+          <SignUpButton type="button" onClick={handleSignUpClick}>
+            회원가입
+          </SignUpButton>
+
           <TestCredentials>
             <strong>테스트 계정:</strong>
             ID: <code>admin</code> / PW: <code>admin123</code><br />
@@ -253,6 +297,12 @@ const Login = () => {
           </InfoText>
         </LoginForm>
       </LoginCard>
+
+      <TermsModal
+        isOpen={isTermsModalOpen}
+        onClose={handleTermsClose}
+        onAgree={handleTermsAgree}
+      />
     </LoginPageWrapper>
   );
 };
