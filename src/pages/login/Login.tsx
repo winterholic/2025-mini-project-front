@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import styled from 'styled-components';
 import { login } from '../../utils/auth';
 import { media } from '../../styles/media';

@@ -69,7 +69,7 @@ const Progress: React.FC<ProgressProps> = ({
         width: "100%",
         height: sizeStyle.height,
         background: "#f3f4f6",
-        borderRadius: sizeStyle.height / 2,
+        borderRadius: "999px",
         overflow: "hidden",
         position: "relative",
       }}>
@@ -78,7 +78,7 @@ const Progress: React.FC<ProgressProps> = ({
             height: "100%",
             width: `${percentage}%`,
             background: config,
-            borderRadius: sizeStyle.height / 2,
+            borderRadius: "999px",
             transition: animated ? "width 0.6s ease" : "none",
             position: "relative",
             overflow: "hidden",

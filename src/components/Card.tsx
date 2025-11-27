@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({
   children,
   variant = "default",
   padding = "md",
-  hoverable = false, // This prop is noted as unused for now to prevent errors
+  hoverable: _hoverable = false,
   style
 }) => {
   const baseStyles: React.CSSProperties = {

@@ -17,7 +17,7 @@ const SmallButton: React.FC<SmallButtonProps> = ({
   style, 
   ...rest 
 }) => {
-  const baseStyles = {
+  const baseStyles: React.CSSProperties = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -45,47 +45,25 @@ const SmallButton: React.FC<SmallButtonProps> = ({
       background: disabled || loading ? "#9ca3af" : "#3b82f6",
       color: "#ffffff",
       boxShadow: disabled || loading ? "none" : "0 2px 8px 0 rgba(59, 130, 246, 0.25)",
-      "&:hover": !disabled && !loading ? {
-        background: "#2563eb",
-        transform: "translateY(-1px)",
-        boxShadow: "0 4px 12px 0 rgba(59, 130, 246, 0.35)",
-      } : {},
     },
     secondary: {
       background: disabled || loading ? "#f3f4f6" : "#f8fafc",
       color: disabled || loading ? "#9ca3af" : "#374151",
       border: "1px solid #e5e7eb",
-      "&:hover": !disabled && !loading ? {
-        background: "#f1f5f9",
-        borderColor: "#cbd5e1",
-      } : {},
     },
     outline: {
       background: "transparent",
       color: disabled || loading ? "#9ca3af" : "#3b82f6",
       border: "1px solid #3b82f6",
-      "&:hover": !disabled && !loading ? {
-        background: "#3b82f6",
-        color: "#ffffff",
-      } : {},
     },
     ghost: {
       background: "transparent",
       color: disabled || loading ? "#9ca3af" : "#6b7280",
-      "&:hover": !disabled && !loading ? {
-        background: "#f3f4f6",
-        color: "#374151",
-      } : {},
     },
     danger: {
       background: disabled || loading ? "#fca5a5" : "#ef4444",
       color: "#ffffff",
       boxShadow: disabled || loading ? "none" : "0 2px 8px 0 rgba(239, 68, 68, 0.25)",
-      "&:hover": !disabled && !loading ? {
-        background: "#dc2626",
-        transform: "translateY(-1px)",
-        boxShadow: "0 4px 12px 0 rgba(239, 68, 68, 0.35)",
-      } : {},
     },
   };
 

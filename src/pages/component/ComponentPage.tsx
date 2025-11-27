@@ -160,7 +160,7 @@ const ComponentPage: React.FC = () => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [radioValue, setRadioValue] = useState("option1");
   const [toggleChecked, setToggleChecked] = useState(false);
-  const [progressValue, setProgressValue] = useState(65);
+  const [progressValue] = useState(65);
 
   const selectOptions = [
     { value: "option1", label: "옵션 1" },
@@ -218,10 +218,9 @@ const ComponentPage: React.FC = () => {
             helperText="최대 500자까지 작성 가능합니다"
           />
           
-          <SelectBox 
-            label="선호하는 언어" 
+          <SelectBox
+            label="선호하는 언어"
             options={selectOptions}
-            placeholder="언어를 선택하세요"
           />
         </div>
 

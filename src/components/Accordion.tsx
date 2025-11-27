@@ -130,12 +130,12 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   const childrenArray = React.Children.toArray(children);
-  
+
   return (
     <div style={{ width: "100%", ...style }}>
       {childrenArray.map((child, index) => {
         if (React.isValidElement(child) && child.type === AccordionItem) {
-          return React.cloneElement(child, {
+          return React.cloneElement(child as React.ReactElement<AccordionItemProps>, {
             key: index,
             isOpen: openItems.includes(index),
             onToggle: () => handleToggle(index),

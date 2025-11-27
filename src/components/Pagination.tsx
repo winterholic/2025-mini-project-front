@@ -176,7 +176,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {showFirstLast && renderNavigationButton("first", currentPage === 1)}
       {renderNavigationButton("prev", currentPage === 1)}
       
-      {showPageNumbers && getVisiblePages().map((page, index) => 
+      {showPageNumbers && getVisiblePages().map((page) =>
         renderPageButton(page, page === currentPage, false)
       )}
       
