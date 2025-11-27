@@ -89,7 +89,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public - Commented out for Vite projects (Vite needs public folder in Git)
 
 # Vuepress build output
 .vuepress/dist
